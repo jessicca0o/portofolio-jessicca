@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JESSICCA DIAN — Portofolio TJKT SMKN 1 Blitar</title>
+  <meta name="description" content="Portofolio resmi Jesscca Dian, pelajar Teknik Jaringan Komputer dan Telekomunikasi (TJKT) di SMKN 1 Blitar." />
+
+  <!-- Google Fonts: Plus Jakarta Sans & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-cream text-charcoal font-sans antialiased selection:bg-pastelPink selection:text-charcoal overflow-x-hidden">
+
+  <!-- Decorative Pastel Background Blobs -->
+  <div aria-hidden="true" class="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
+    <div class="absolute -top-28 -left-24 w-80 h-80 sm:w-96 sm:h-96 rounded-full bg-pastelPink/40 blur-3xl"></div>
+    <div class="absolute top-36 -right-24 w-80 h-80 sm:w-[28rem] sm:h-[28rem] rounded-full bg-pastelLavender/45 blur-3xl"></div>
+    <div class="absolute bottom-16 left-1/4 w-72 h-72 sm:w-96 sm:h-96 rounded-full bg-pastelMint/40 blur-3xl"></div>
+  </div>
+
+  <!-- =====================================================================
+       STICKY NAVIGATION BAR (Bilingual ID / EN — Clean Minimalist)
+  ====================================================================== -->
+  <header class="sticky top-0 z-40 bg-cream/85 backdrop-blur-md border-b border-pastelPink/60">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-4">
+      <!-- Mobile Hamburger Button (Left on Mobile, Hidden on Desktop) -->
+      <button
+        type="button"
+        id="mobile-menu-btn"
+        aria-label="Buka Menu"
+        aria-expanded="false"
+        class="md:hidden p-2.5 rounded-2xl bg-white border border-pastelPink/80 text-charcoal hover:bg-pastelPinkSoft transition-colors"
+      >
+        <svg id="icon-menu-open" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        <svg id="icon-menu-close" class="w-5 h-5 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+
+      <!-- Desktop Navigation Links -->
+      <nav aria-label="Navigasi Utama" class="hidden md:flex items-center gap-7 lg:gap-9 text-sm font-semibold text-slateMuted">
+        <a href="#about" data-i18n="navAbout" class="hover:text-charcoal transition-colors py-1">Tentang Saya</a>
+        <a href="#projects" data-i18n="navProjects" class="hover:text-charcoal transition-colors py-1">Projek</a>
+        <a href="#certificates" data-i18n="navCertificates" class="hover:text-charcoal transition-colors py-1">Sertifikat</a>
+        <a href="#skills" data-i18n="navSkills" class="hover:text-charcoal transition-colors py-1">Keahlian</a>
+        <a href="#contact" data-i18n="navContact" class="hover:text-charcoal transition-colors py-1">Kontak</a>
+      </nav>
+
+      <!-- Right Controls: Bilingual Switcher (ID | EN) -->
+      <div class="flex items-center gap-2.5 ml-auto md:ml-0">
+        <div role="group" aria-label="Pilih Bahasa / Select Language" class="inline-flex items-center p-1 rounded-full bg-white border border-pastelLavender shadow-sm">
+          <button
+            type="button"
+            id="btn-lang-id"
+            onclick="setLanguage('id')"
+            class="px-3 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer bg-pastelPink text-charcoal shadow-xs"
+          >
+            ID
+          </button>
+          <button
+            type="button"
+            id="btn-lang-en"
+            onclick="setLanguage('en')"
+            class="px-3 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer text-slateMuted hover:text-charcoal"
+          >
+            EN
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown Navigation -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-md border-b border-pastelPink/60 px-4 pt-2 pb-5 space-y-1.5">
+      <a href="#about" data-i18n="navAbout" class="mobile-nav-link block px-4 py-2.5 rounded-2xl text-sm font-semibold text-charcoal hover:bg-pastelPinkSoft transition-colors">Tentang Saya</a>
+      <a href="#projects" data-i18n="navProjects" class="mobile-nav-link block px-4 py-2.5 rounded-2xl text-sm font-semibold text-charcoal hover:bg-pastelLavenderSoft transition-colors">Projek</a>
+      <a href="#certificates" data-i18n="navCertificates" class="mobile-nav-link block px-4 py-2.5 rounded-2xl text-sm font-semibold text-charcoal hover:bg-pastelMintSoft transition-colors">Sertifikat</a>
+      <a href="#skills" data-i18n="navSkills" class="mobile-nav-link block px-4 py-2.5 rounded-2xl text-sm font-semibold text-charcoal hover:bg-pastelPeachSoft transition-colors">Keahlian</a>
+      <a href="#contact" data-i18n="navContact" class="mobile-nav-link block px-4 py-2.5 rounded-2xl text-sm font-semibold text-charcoal hover:bg-pastelPinkSoft transition-colors">Kontak</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- =====================================================================
+         HERO SECTION: Left = Selamat Datang & Nama | Right = pp.jpeg
+    ====================================================================== -->
+    <section id="hero" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-14 sm:pt-16 sm:pb-20">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+
+        <!-- Left Column: Welcome Greeting & Name -->
+        <div class="lg:col-span-7 space-y-6 text-center lg:text-left order-2 lg:order-1">
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-pastelPinkSoft border border-pastelPink text-charcoal text-xs sm:text-sm font-semibold shadow-xs">
+            <span class="w-2 h-2 rounded-full bg-pink-400"></span>
+            <span data-i18n="heroWelcome">Selamat Datang di Portofolio Saya</span>
+          </div>
+
+          <div class="space-y-3">
+            <p data-i18n="heroIntroLabel" class="text-sm sm:text-base font-semibold uppercase tracking-widest text-slateMuted">
+              Halo, Saya
+            </p>
+            <h1 class="font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl tracking-tight text-charcoal leading-tight">
+              JESSICCA DIAN
+            </h1>
+            <p data-i18n="heroSubtitle" class="text-base sm:text-lg font-semibold text-slateMuted max-w-2xl mx-auto lg:mx-0">
+              Pelajar Teknik Jaringan Komputer dan Telekomunikasi (TJKT) — SMKN 1 Blitar
+            </p>
+          </div>
+
+          <p data-i18n="heroDescription" class="text-sm sm:text-base text-slateMuted leading-relaxed max-w-xl mx-auto lg:mx-0">
+            Bersemangat mengeksplorasi infrastruktur jaringan komputer, pengelolaan basis data (database), serta pengembangan aplikasi praktis yang rapi dan mudah digunakan.
+          </p>
+
+          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3.5 pt-2">
+            <a
+              href="#projects"
+              class="px-6 py-3.5 rounded-2xl bg-pastelPink hover:bg-pastelPeach text-charcoal font-bold text-sm transition-all shadow-pastel hover:-translate-y-0.5 inline-flex items-center gap-2"
+            >
+              <span data-i18n="heroBtnProjects">Lihat Projek Saya</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+            </a>
+            <a
+              href="#contact"
+              class="px-6 py-3.5 rounded-2xl bg-white hover:bg-pastelLavenderSoft border border-pastelLavender text-charcoal font-bold text-sm transition-all shadow-xs hover:-translate-y-0.5 inline-flex items-center gap-2"
+            >
+              <span data-i18n="heroBtnContact">Hubungi Saya</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Column: Profile Photo (pp.jpeg) -->
+        <div class="lg:col-span-5 flex justify-center lg:justify-end order-1 lg:order-2">
+          <div class="relative w-64 h-64 sm:w-80 sm:h-80">
+            <div aria-hidden="true" class="absolute -inset-3 rounded-[2.5rem] bg-gradient-to-tr from-pastelPink via-pastelLavender to-pastelMint rotate-3 opacity-80"></div>
+            <div aria-hidden="true" class="absolute -inset-3 rounded-[2.5rem] bg-white/60 -rotate-2 border border-white"></div>
+
+            <div class="relative w-full h-full rounded-[2.25rem] overflow-hidden bg-pastelPinkSoft border-4 border-white shadow-pastel flex items-center justify-center">
+              <img
+                src="pp.jpeg"
+                alt="Foto Profil Jesscca Dian"
+                class="w-full h-full object-cover object-center"
+                onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');"
+              />
+              <!-- Fallback SVG -->
+              <div class="hidden w-full h-full flex flex-col items-center justify-center bg-gradient-to-b from-pastelPinkSoft via-pastelLavenderSoft to-pastelPeachSoft p-6 text-center">
+                <svg class="w-28 h-28 text-charcoal/80 mb-2" viewBox="0 0 120 120" fill="none">
+                  <circle cx="60" cy="60" r="56" fill="#FAD2E1" fill-opacity="0.55" />
+                  <circle cx="60" cy="46" r="20" fill="#2B2D42" fill-opacity="0.75" />
+                  <path d="M26 98C26 79.2223 41.2223 64 60 64C78.7777 64 94 79.2223 94 98" fill="#2B2D42" fill-opacity="0.75" />
+                </svg>
+                <span class="font-display font-bold text-xs tracking-wider uppercase text-charcoal">JESSICCA DIAN</span>
+                <span class="text-[11px] text-slateMuted mt-0.5">pp.jpeg</span>
+              </div>
+            </div>
+
+            <div class="animate-float absolute -bottom-3 -left-3 sm:-left-6 px-4 py-2 rounded-2xl bg-white/95 backdrop-blur-xs border border-pastelMint shadow-pastel flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+              <span class="text-xs font-bold text-charcoal">TJKT • SMKN 1 Blitar</span>
+            </div>
+
+            <div class="animate-float-delayed absolute -top-3 -right-2 sm:-right-4 px-3.5 py-2 rounded-2xl bg-pastelLavenderSoft/95 backdrop-blur-xs border border-pastelLavender shadow-pastel">
+              <span class="text-xs font-bold text-charcoal">Database &amp; Kasir</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         ABOUT ME SECTION
+    ====================================================================== -->
+    <section id="about" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
+      <div class="rounded-[2rem] bg-white border border-pastelLavender/80 p-6 sm:p-10 lg:p-12 shadow-pastel relative overflow-hidden">
+        <div aria-hidden="true" class="absolute -right-12 -top-12 w-44 h-44 rounded-full bg-pastelPeachSoft pointer-events-none"></div>
+
+        <div class="relative grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div class="lg:col-span-4 space-y-3">
+            <span data-i18n="aboutBadge" class="inline-block px-3.5 py-1.5 rounded-full bg-pastelLavenderSoft text-charcoal text-xs font-bold tracking-wide">
+              Tentang Saya
+            </span>
+            <h2 data-i18n="aboutTitle" class="font-display font-bold text-2xl sm:text-3xl text-charcoal leading-snug">
+              Pelajar TJKT di SMKN 1 Blitar
+            </h2>
+            <div class="w-16 h-1.5 rounded-full bg-gradient-to-r from-pastelPink to-pastelLavender"></div>
+          </div>
+
+          <div class="lg:col-span-8 space-y-4 text-sm sm:text-base text-slateMuted leading-relaxed">
+            <p data-i18n="aboutP1">
+              Halo! Saya <strong class="text-charcoal font-semibold">Jesscca Dian</strong>, seorang pelajar aktif di <strong class="text-charcoal font-semibold">SMKN 1 Blitar</strong> yang menempuh pendidikan pada jurusan <strong class="text-charcoal font-semibold">Teknik Jaringan Komputer dan Telekomunikasi (TJKT)</strong>.
+            </p>
+            <p data-i18n="aboutP2">
+              Selama belajar di TJKT, saya mendalami instalasi dan konfigurasi jaringan komputer, administrasi server dasar, perancangan basis data (database), hingga pembuatan aplikasi fungsional seperti sistem kasir. Saya selalu antusias mempelajari teknologi baru dan menyelesaikan tantangan secara teliti.
+            </p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-2">
+              <div class="p-4 rounded-2xl bg-pastelMintSoft/80 border border-pastelMint flex items-start gap-3">
+                <div class="w-9 h-9 rounded-xl bg-white flex items-center justify-center shrink-0 text-charcoal shadow-2xs">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 14l9-5-9-5-9 5 9 5z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+                  </svg>
+                </div>
+                <div>
+                  <p data-i18n="aboutCardSchoolLabel" class="text-xs font-bold uppercase tracking-wider text-slateMuted">Sekolah</p>
+                  <p class="text-sm font-bold text-charcoal mt-0.5">SMKN 1 Blitar</p>
+                </div>
+              </div>
+
+              <div class="p-4 rounded-2xl bg-pastelPinkSoft/80 border border-pastelPink flex items-start gap-3">
+                <div class="w-9 h-9 rounded-xl bg-white flex items-center justify-center shrink-0 text-charcoal shadow-2xs">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+                  </svg>
+                </div>
+                <div>
+                  <p data-i18n="aboutCardMajorLabel" class="text-xs font-bold uppercase tracking-wider text-slateMuted">Jurusan</p>
+                  <p data-i18n="aboutCardMajorValue" class="text-sm font-bold text-charcoal mt-0.5">Teknik Jaringan Komputer &amp; Telekomunikasi (TJKT)</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         PROJECTS SECTION (database.jpeg & kasir.jpeg)
+    ====================================================================== -->
+    <section id="projects" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
+      <div class="text-center max-w-2xl mx-auto mb-10 space-y-2.5">
+        <span data-i18n="projectsBadge" class="inline-block px-3.5 py-1.5 rounded-full bg-pastelPinkSoft border border-pastelPink text-charcoal text-xs font-bold tracking-wide">
+          Portofolio Karya
+        </span>
+        <h2 data-i18n="projectsTitle" class="font-display font-bold text-2xl sm:text-3xl text-charcoal">
+          Projek Pilihan
+        </h2>
+        <p data-i18n="projectsSubtitle" class="text-sm sm:text-base text-slateMuted">
+          Dokumentasi hasil pengerjaan projek perancangan basis data dan aplikasi kasir. Klik gambar untuk memperbesar.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-7 sm:gap-8">
+        <!-- Project 1: Database -->
+        <article class="group rounded-[2rem] bg-white border border-pastelLavender/90 overflow-hidden shadow-pastel hover:shadow-pastelHover transition-all duration-300 flex flex-col">
+          <div
+            role="button"
+            tabindex="0"
+            onclick="openLightbox(this)"
+            onkeydown="if(event.key==='Enter') openLightbox(this)"
+            data-caption-id="Projek Database — Perancangan & Manajemen Basis Data"
+            data-caption-en="Database Project — Relational Database Design & Management"
+            class="relative aspect-[16/10] w-full bg-pastelLavenderSoft overflow-hidden cursor-zoom-in"
+          >
+            <img
+              src="database.jpeg"
+              alt="Projek Database Jesscca Dian"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');"
+            />
+            <div class="hidden w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-pastelLavenderSoft via-pastelSky/40 to-pastelMintSoft p-6 text-center">
+              <svg class="w-20 h-20 text-charcoal/80 mb-2" viewBox="0 0 80 80" fill="none">
+                <ellipse cx="40" cy="20" rx="24" ry="9" fill="#DFD3F2" stroke="#2B2D42" stroke-width="2.5"/>
+                <path d="M16 20V38C16 42.9706 26.7452 47 40 47C53.2548 47 64 42.9706 64 38V20" fill="#FAD2E1" fill-opacity="0.55" stroke="#2B2D42" stroke-width="2.5"/>
+                <path d="M16 38V56C16 60.9706 26.7452 65 40 65C53.2548 65 64 60.9706 64 56V38" fill="#D8F3DC" fill-opacity="0.65" stroke="#2B2D42" stroke-width="2.5"/>
+              </svg>
+              <span class="font-display font-bold text-sm text-charcoal">Projek Database</span>
+              <span class="text-xs text-slateMuted mt-0.5">database.jpeg</span>
+            </div>
+
+            <span class="absolute top-3.5 right-3.5 px-3 py-1.5 rounded-full bg-white/90 backdrop-blur-xs text-charcoal text-xs font-bold shadow-xs opacity-90 group-hover:opacity-100 transition-opacity">
+              🔍 <span data-i18n="zoomLabel">Perbesar</span>
+            </span>
+          </div>
+
+          <div class="p-6 sm:p-7 flex-1 flex flex-col justify-between space-y-5">
+            <div class="space-y-2.5">
+              <div class="flex items-center justify-between gap-2">
+                <span class="px-3 py-1 rounded-full bg-pastelLavenderSoft text-charcoal text-xs font-bold">Database System</span>
+              </div>
+              <h3 data-i18n="proj1Title" class="font-display font-bold text-xl text-charcoal">
+                Projek Database
+              </h3>
+              <p data-i18n="proj1Desc" class="text-sm text-slateMuted leading-relaxed">
+                Perancangan struktur tabel relasional, normalisasi data, serta pengelolaan query SQL untuk memastikan penyimpanan informasi yang terstruktur, cepat, dan akurat.
+              </p>
+            </div>
+
+            <div class="flex flex-wrap gap-2 pt-1">
+              <span class="px-3 py-1 rounded-xl bg-cream border border-pastelLavender text-xs font-semibold text-charcoal">SQL</span>
+              <span class="px-3 py-1 rounded-xl bg-cream border border-pastelLavender text-xs font-semibold text-charcoal">ERD</span>
+              <span data-i18n="tagDataMgmt" class="px-3 py-1 rounded-xl bg-cream border border-pastelLavender text-xs font-semibold text-charcoal">Manajemen Data</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 2: Aplikasi Kasir -->
+        <article class="group rounded-[2rem] bg-white border border-pastelPink/90 overflow-hidden shadow-pastel hover:shadow-pastelHover transition-all duration-300 flex flex-col">
+          <div
+            role="button"
+            tabindex="0"
+            onclick="openLightbox(this)"
+            onkeydown="if(event.key==='Enter') openLightbox(this)"
+            data-caption-id="Projek Aplikasi Kasir — Sistem Transaksi & Pencatatan Penjualan"
+            data-caption-en="Cashier (POS) Application Project — Sales & Transaction System"
+            class="relative aspect-[16/10] w-full bg-pastelPinkSoft overflow-hidden cursor-zoom-in"
+          >
+            <img
+              src="kasir.jpeg"
+              alt="Projek Aplikasi Kasir Jesscca Dian"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');"
+            />
+            <div class="hidden w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-pastelPinkSoft via-pastelPeachSoft to-pastelLavenderSoft p-6 text-center">
+              <svg class="w-20 h-20 text-charcoal/80 mb-2" viewBox="0 0 80 80" fill="none">
+                <rect x="16" y="16" width="48" height="32" rx="6" fill="#FAD2E1" stroke="#2B2D42" stroke-width="2.5"/>
+                <rect x="23" y="23" width="34" height="14" rx="3" fill="#FFFDFB" stroke="#2B2D42" stroke-width="2"/>
+                <path d="M12 54H68L64 66H16L12 54Z" fill="#DFD3F2" stroke="#2B2D42" stroke-width="2.5" stroke-linejoin="round"/>
+                <circle cx="28" cy="60" r="2" fill="#2B2D42"/>
+                <circle cx="40" cy="60" r="2" fill="#2B2D42"/>
+                <circle cx="52" cy="60" r="2" fill="#2B2D42"/>
+              </svg>
+              <span class="font-display font-bold text-sm text-charcoal">Projek Aplikasi Kasir</span>
+              <span class="text-xs text-slateMuted mt-0.5">kasir.jpeg</span>
+            </div>
+
+            <span class="absolute top-3.5 right-3.5 px-3 py-1.5 rounded-full bg-white/90 backdrop-blur-xs text-charcoal text-xs font-bold shadow-xs opacity-90 group-hover:opacity-100 transition-opacity">
+              🔍 <span data-i18n="zoomLabel">Perbesar</span>
+            </span>
+          </div>
+
+          <div class="p-6 sm:p-7 flex-1 flex flex-col justify-between space-y-5">
+            <div class="space-y-2.5">
+              <div class="flex items-center justify-between gap-2">
+                <span class="px-3 py-1 rounded-full bg-pastelPinkSoft text-charcoal text-xs font-bold">Point of Sale (POS)</span>
+              </div>
+              <h3 data-i18n="proj2Title" class="font-display font-bold text-xl text-charcoal">
+                Projek Aplikasi Kasir
+              </h3>
+              <p data-i18n="proj2Desc" class="text-sm text-slateMuted leading-relaxed">
+                Aplikasi kasir untuk membantu pencatatan barang, perhitungan total transaksi otomatis, pengelolaan stok, dan pembuatan ringkasan pembayaran dengan antarmuka yang ramah pengguna.
+              </p>
+            </div>
+
+            <div class="flex flex-wrap gap-2 pt-1">
+              <span data-i18n="tagCashier" class="px-3 py-1 rounded-xl bg-cream border border-pastelPink text-xs font-semibold text-charcoal">Aplikasi Kasir</span>
+              <span data-i18n="tagTransaction" class="px-3 py-1 rounded-xl bg-cream border border-pastelPink text-xs font-semibold text-charcoal">Sistem Transaksi</span>
+              <span class="px-3 py-1 rounded-xl bg-cream border border-pastelPink text-xs font-semibold text-charcoal">UI/UX</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         CERTIFICATES SECTION (sertif.jpeg & sertif1.jpeg)
+    ====================================================================== -->
+    <section id="certificates" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
+      <div class="text-center max-w-2xl mx-auto mb-10 space-y-2.5">
+        <span data-i18n="certBadge" class="inline-block px-3.5 py-1.5 rounded-full bg-pastelMintSoft border border-pastelMint text-charcoal text-xs font-bold tracking-wide">
+          Pencapaian &amp; Kompetensi
+        </span>
+        <h2 data-i18n="certTitle" class="font-display font-bold text-2xl sm:text-3xl text-charcoal">
+          Sertifikat UTK &amp; Perlombaan
+        </h2>
+        <p data-i18n="certSubtitle" class="text-sm sm:text-base text-slateMuted">
+          Bukti uji kompetensi kejuruan dan partisipasi dalam kompetisi bidang teknologi. Klik sertifikat untuk melihat detail.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-7 sm:gap-8">
+        <!-- Certificate 1: Sertifikat UTK -->
+        <article class="group rounded-[2rem] bg-white border border-pastelMint overflow-hidden shadow-pastel hover:shadow-pastelHover transition-all duration-300 flex flex-col">
+          <div
+            role="button"
+            tabindex="0"
+            onclick="openLightbox(this)"
+            onkeydown="if(event.key==='Enter') openLightbox(this)"
+            data-caption-id="Sertifikat UTK (Uji Tingkat Kompetensi) — TJKT SMKN 1 Blitar"
+            data-caption-en="Competency Assessment Certificate (UTK) — TJKT SMKN 1 Blitar"
+            class="relative aspect-[16/11] w-full bg-pastelMintSoft overflow-hidden cursor-zoom-in"
+          >
+            <img
+              src="sertif.jpeg"
+              alt="Sertifikat UTK Jesscca Dian"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');"
+            />
+            <div class="hidden w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-pastelMintSoft via-cream to-pastelLavenderSoft p-6 text-center">
+              <svg class="w-20 h-20 text-charcoal/80 mb-2" viewBox="0 0 80 80" fill="none">
+                <rect x="14" y="16" width="52" height="38" rx="6" fill="#D8F3DC" stroke="#2B2D42" stroke-width="2.5"/>
+                <path d="M24 28H56M24 36H44" stroke="#2B2D42" stroke-width="2.5" stroke-linecap="round"/>
+                <circle cx="52" cy="46" r="9" fill="#FAD2E1" stroke="#2B2D42" stroke-width="2.2"/>
+                <path d="M48 54L46 66L52 62L58 66L56 54" fill="#DFD3F2" stroke="#2B2D42" stroke-width="2" stroke-linejoin="round"/>
+              </svg>
+              <span class="font-display font-bold text-sm text-charcoal">Sertifikat UTK</span>
+              <span class="text-xs text-slateMuted mt-0.5">sertif.jpeg</span>
+            </div>
+
+            <span class="absolute top-3.5 right-3.5 px-3 py-1.5 rounded-full bg-white/90 backdrop-blur-xs text-charcoal text-xs font-bold shadow-xs">
+              🔍 <span data-i18n="zoomLabel">Perbesar</span>
+            </span>
+          </div>
+
+          <div class="p-6 sm:p-7 space-y-2">
+            <span data-i18n="cert1Tag" class="inline-block px-3 py-1 rounded-full bg-pastelMintSoft text-charcoal text-xs font-bold">
+              Uji Tingkat Kompetensi
+            </span>
+            <h3 data-i18n="cert1Title" class="font-display font-bold text-xl text-charcoal">
+              Sertifikat UTK
+            </h3>
+            <p data-i18n="cert1Desc" class="text-sm text-slateMuted leading-relaxed">
+              Sertifikat kelulusan Uji Tingkat Kompetensi (UTK) pada bidang keahlian Teknik Jaringan Komputer dan Telekomunikasi di SMKN 1 Blitar.
+            </p>
+          </div>
+        </article>
+
+        <!-- Certificate 2: Sertifikat Perlombaan -->
+        <article class="group rounded-[2rem] bg-white border border-pastelPeach overflow-hidden shadow-pastel hover:shadow-pastelHover transition-all duration-300 flex flex-col">
+          <div
+            role="button"
+            tabindex="0"
+            onclick="openLightbox(this)"
+            onkeydown="if(event.key==='Enter') openLightbox(this)"
+            data-caption-id="Sertifikat Perlombaan — Partisipasi & Prestasi Kompetisi"
+            data-caption-en="Competition Certificate — Technical Competition Participation"
+            class="relative aspect-[16/11] w-full bg-pastelPeachSoft overflow-hidden cursor-zoom-in"
+          >
+            <img
+              src="sertif1.jpeg"
+              alt="Sertifikat Perlombaan Jesscca Dian"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');"
+            />
+            <div class="hidden w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-pastelPeachSoft via-cream to-pastelPinkSoft p-6 text-center">
+              <svg class="w-20 h-20 text-charcoal/80 mb-2" viewBox="0 0 80 80" fill="none">
+                <path d="M26 18H54V34C54 41.732 47.732 48 40 48C32.268 48 26 41.732 26 34V18Z" fill="#FAD2E1" stroke="#2B2D42" stroke-width="2.5"/>
+                <path d="M26 24H18C18 31 21 35 26 36M54 24H62C62 31 59 35 54 36" stroke="#2B2D42" stroke-width="2.5" stroke-linecap="round"/>
+                <path d="M40 48V58M30 62H50" stroke="#2B2D42" stroke-width="2.5" stroke-linecap="round"/>
+              </svg>
+              <span class="font-display font-bold text-sm text-charcoal">Sertifikat Perlombaan</span>
+              <span class="text-xs text-slateMuted mt-0.5">sertif1.jpeg</span>
+            </div>
+
+            <span class="absolute top-3.5 right-3.5 px-3 py-1.5 rounded-full bg-white/90 backdrop-blur-xs text-charcoal text-xs font-bold shadow-xs">
+              🔍 <span data-i18n="zoomLabel">Perbesar</span>
+            </span>
+          </div>
+
+          <div class="p-6 sm:p-7 space-y-2">
+            <span data-i18n="cert2Tag" class="inline-block px-3 py-1 rounded-full bg-pastelPeachSoft text-charcoal text-xs font-bold">
+              Kompetisi &amp; Lomba
+            </span>
+            <h3 data-i18n="cert2Title" class="font-display font-bold text-xl text-charcoal">
+              Sertifikat Perlombaan
+            </h3>
+            <p data-i18n="cert2Desc" class="text-sm text-slateMuted leading-relaxed">
+              Sertifikat penghargaan dan keikutsertaan dalam ajang perlombaan untuk mengasah kemampuan teknis, kreativitas, dan ketangkasan pemecahan masalah.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         SKILLS SECTION (No Percentages)
+    ====================================================================== -->
+    <section id="skills" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
+      <div class="text-center max-w-2xl mx-auto mb-10 space-y-2.5">
+        <span data-i18n="skillsBadge" class="inline-block px-3.5 py-1.5 rounded-full bg-pastelLavenderSoft border border-pastelLavender text-charcoal text-xs font-bold tracking-wide">
+          Kompetensi Utama
+        </span>
+        <h2 data-i18n="skillsTitle" class="font-display font-bold text-2xl sm:text-3xl text-charcoal">
+          Keahlian &amp; Keterampilan
+        </h2>
+        <p data-i18n="skillsSubtitle" class="text-sm sm:text-base text-slateMuted">
+          Bidang teknis jaringan komputer, pengelolaan basis data, dan keterampilan pendukung yang saya kuasai.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-7">
+        <!-- Category 1: Jaringan & Infrastruktur (TJKT) -->
+        <div class="rounded-[2rem] bg-white border border-pastelMint p-6 sm:p-7 shadow-pastel space-y-5">
+          <div class="w-12 h-12 rounded-2xl bg-pastelMintSoft border border-pastelMint flex items-center justify-center text-charcoal">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" />
+            </svg>
+          </div>
+          <h3 data-i18n="skillCat1Title" class="font-display font-bold text-lg text-charcoal">
+            Jaringan &amp; Infrastruktur (TJKT)
+          </h3>
+          <div class="flex flex-wrap gap-2.5">
+            <span data-i18n="skill1_1" class="px-3.5 py-2 rounded-2xl bg-pastelMintSoft text-charcoal text-xs sm:text-sm font-semibold">Konfigurasi Jaringan LAN &amp; WLAN</span>
+            <span data-i18n="skill1_2" class="px-3.5 py-2 rounded-2xl bg-pastelMintSoft text-charcoal text-xs sm:text-sm font-semibold">Crimping &amp; Pengkabelan UTP</span>
+            <span data-i18n="skill1_3" class="px-3.5 py-2 rounded-2xl bg-pastelMintSoft text-charcoal text-xs sm:text-sm font-semibold">Dasar MikroTik &amp; Routing</span>
+            <span data-i18n="skill1_4" class="px-3.5 py-2 rounded-2xl bg-pastelMintSoft text-charcoal text-xs sm:text-sm font-semibold">Troubleshooting Hardware &amp; Software</span>
+          </div>
+        </div>
+
+        <!-- Category 2: Database & Aplikasi -->
+        <div class="rounded-[2rem] bg-white border border-pastelLavender p-6 sm:p-7 shadow-pastel space-y-5">
+          <div class="w-12 h-12 rounded-2xl bg-pastelLavenderSoft border border-pastelLavender flex items-center justify-center text-charcoal">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
+            </svg>
+          </div>
+          <h3 data-i18n="skillCat2Title" class="font-display font-bold text-lg text-charcoal">
+            Database &amp; Pengembangan Aplikasi
+          </h3>
+          <div class="flex flex-wrap gap-2.5">
+            <span data-i18n="skill2_1" class="px-3.5 py-2 rounded-2xl bg-pastelLavenderSoft text-charcoal text-xs sm:text-sm font-semibold">Perancangan Database (SQL)</span>
+            <span data-i18n="skill2_2" class="px-3.5 py-2 rounded-2xl bg-pastelLavenderSoft text-charcoal text-xs sm:text-sm font-semibold">Sistem Aplikasi Kasir (POS)</span>
+            <span data-i18n="skill2_3" class="px-3.5 py-2 rounded-2xl bg-pastelLavenderSoft text-charcoal text-xs sm:text-sm font-semibold">HTML &amp; CSS Dasar</span>
+            <span data-i18n="skill2_4" class="px-3.5 py-2 rounded-2xl bg-pastelLavenderSoft text-charcoal text-xs sm:text-sm font-semibold">Manajemen &amp; Validasi Data</span>
+          </div>
+        </div>
+
+        <!-- Category 3: Soft Skills -->
+        <div class="rounded-[2rem] bg-white border border-pastelPink p-6 sm:p-7 shadow-pastel space-y-5">
+          <div class="w-12 h-12 rounded-2xl bg-pastelPinkSoft border border-pastelPink flex items-center justify-center text-charcoal">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <h3 data-i18n="skillCat3Title" class="font-display font-bold text-lg text-charcoal">
+            Soft Skills &amp; Etos Kerja
+          </h3>
+          <div class="flex flex-wrap gap-2.5">
+            <span data-i18n="skill3_1" class="px-3.5 py-2 rounded-2xl bg-pastelPinkSoft text-charcoal text-xs sm:text-sm font-semibold">Kerja Sama Tim</span>
+            <span data-i18n="skill3_2" class="px-3.5 py-2 rounded-2xl bg-pastelPinkSoft text-charcoal text-xs sm:text-sm font-semibold">Pemecahan Masalah</span>
+            <span data-i18n="skill3_3" class="px-3.5 py-2 rounded-2xl bg-pastelPinkSoft text-charcoal text-xs sm:text-sm font-semibold">Ketelitian &amp; Dokumentasi</span>
+            <span data-i18n="skill3_4" class="px-3.5 py-2 rounded-2xl bg-pastelPinkSoft text-charcoal text-xs sm:text-sm font-semibold">Komunikasi Efektif</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         CONTACT SECTION (Email & Instagram Pribadi)
+    ====================================================================== -->
+    <section id="contact" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16">
+      <div class="rounded-[2.25rem] bg-gradient-to-br from-pastelPinkSoft via-white to-pastelLavenderSoft border border-pastelPink/80 p-7 sm:p-12 shadow-pastel">
+        <div class="text-center max-w-xl mx-auto mb-9 space-y-2.5">
+          <span data-i18n="contactBadge" class="inline-block px-3.5 py-1.5 rounded-full bg-white border border-pastelPink text-charcoal text-xs font-bold tracking-wide">
+            Mari Terhubung
+          </span>
+          <h2 data-i18n="contactTitle" class="font-display font-bold text-2xl sm:text-3xl text-charcoal">
+            Kontak Saya
+          </h2>
+          <p data-i18n="contactSubtitle" class="text-sm sm:text-base text-slateMuted">
+            Jangan ragu untuk menghubungi saya melalui email atau pesan langsung di Instagram pribadi untuk diskusi maupun kolaborasi.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          <!-- Contact Card 1: Email -->
+          <div class="rounded-[1.75rem] bg-white border border-pastelLavender p-6 sm:p-7 shadow-xs flex flex-col justify-between space-y-5">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-2xl bg-pastelLavenderSoft border border-pastelLavender flex items-center justify-center shrink-0 text-charcoal">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <div class="min-w-0 flex-1">
+                <p data-i18n="contactEmailLabel" class="text-xs font-bold uppercase tracking-wider text-slateMuted">Email</p>
+                <p id="email-text" class="font-display font-bold text-base sm:text-lg text-charcoal truncate mt-0.5">
+                  chikaanggi989@gmail.com
+                </p>
+                <p data-i18n="contactEmailHint" class="text-xs text-slateMuted mt-1">
+                  Respon cepat untuk pertanyaan &amp; kolaborasi projek
+                </p>
+              </div>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-2.5 pt-1">
+              <a
+                href="mailto:chikaanggi989@gmail.com"
+                class="flex-1 text-center px-4 py-3 rounded-2xl bg-pastelLavender hover:bg-pastelPink text-charcoal font-bold text-xs sm:text-sm transition-colors"
+              >
+                <span data-i18n="btnSendEmail">Kirim Email</span>
+              </a>
+              <button
+                type="button"
+                onclick="copyText('chikaanggi989@gmail.com')"
+                class="px-4 py-3 rounded-2xl bg-cream hover:bg-pastelLavenderSoft border border-pastelLavender text-charcoal font-bold text-xs sm:text-sm transition-colors cursor-pointer"
+              >
+                <span data-i18n="btnCopy">Salin</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Contact Card 2: Instagram Pribadi -->
+          <div class="rounded-[1.75rem] bg-white border border-pastelPink p-6 sm:p-7 shadow-xs flex flex-col justify-between space-y-5">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-2xl bg-pastelPinkSoft border border-pastelPink flex items-center justify-center shrink-0 text-charcoal">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                  <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" />
+                  <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                </svg>
+              </div>
+              <div class="min-w-0 flex-1">
+                <p data-i18n="contactIgLabel" class="text-xs font-bold uppercase tracking-wider text-slateMuted">Instagram Pribadi</p>
+                <p class="font-display font-bold text-base sm:text-lg text-charcoal truncate mt-0.5">
+                  @_jsscadn
+                </p>
+                <p data-i18n="contactIgHint" class="text-xs text-slateMuted mt-1">
+                  Ikuti aktivitas &amp; kirim Direct Message (DM)
+                </p>
+              </div>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-2.5 pt-1">
+              <a
+                href="https://www.instagram.com/_jsscadn?gwpx=ejQydTkwYTJpend0"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex-1 text-center px-4 py-3 rounded-2xl bg-pastelPink hover:bg-pastelPeach text-charcoal font-bold text-xs sm:text-sm transition-colors"
+              >
+                <span data-i18n="btnOpenIg">Buka Instagram</span>
+              </a>
+              <button
+                type="button"
+                onclick="copyText('@jessccadian')"
+                class="px-4 py-3 rounded-2xl bg-cream hover:bg-pastelPinkSoft border border-pastelPink text-charcoal font-bold text-xs sm:text-sm transition-colors cursor-pointer"
+              >
+                <span data-i18n="btnCopy">Salin</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =====================================================================
+       FOOTER
+  ====================================================================== -->
+  <footer class="border-t border-pastelPink/60 bg-white/70 backdrop-blur-xs">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-7 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+      <div>
+        <p class="font-display font-bold text-sm text-charcoal">JESSCCA DIAN</p>
+        <p data-i18n="footerSubtitle" class="text-xs text-slateMuted mt-0.5">
+          Pelajar Teknik Jaringan Komputer dan Telekomunikasi (TJKT) — SMKN 1 Blitar
+        </p>
+      </div>
+      <a
+        href="#hero"
+        data-i18n="backToTop"
+        class="px-4 py-2 rounded-full bg-pastelPinkSoft hover:bg-pastelPink text-charcoal text-xs font-bold transition-colors"
+      >
+        Kembali ke Atas ↑
+      </a>
+    </div>
+  </footer>
+
+  <!-- =====================================================================
+       IMAGE LIGHTBOX MODAL
+  ====================================================================== -->
+  <div
+    id="lightbox-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="lightbox-caption"
+    class="fixed inset-0 z-50 hidden items-center justify-center bg-charcoal/70 backdrop-blur-xs p-4 sm:p-6"
+    onclick="if(event.target === this) closeLightbox()"
+  >
+    <div class="relative max-w-3xl w-full rounded-[2rem] bg-white border-2 border-pastelPink p-4 sm:p-6 shadow-2xl space-y-4">
+      <div class="flex items-center justify-between gap-3">
+        <p id="lightbox-caption" class="font-display font-bold text-sm sm:text-base text-charcoal"></p>
+        <button
+          type="button"
+          onclick="closeLightbox()"
+          aria-label="Tutup Pratinjau"
+          class="p-2 rounded-full bg-pastelPinkSoft hover:bg-pastelPink text-charcoal transition-colors cursor-pointer"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+      <div id="lightbox-content" class="w-full max-h-[72vh] rounded-2xl overflow-hidden bg-cream border border-pastelLavender/60 flex items-center justify-center"></div>
+    </div>
+  </div>
+
+  <!-- =====================================================================
+       CUSTOM TOAST NOTIFICATION
+  ====================================================================== -->
+  <div
+    id="toast-notification"
+    role="status"
+    aria-live="polite"
+    class="fixed bottom-5 right-5 z-50 translate-y-20 opacity-0 pointer-events-none transition-all duration-300"
+  >
+    <div class="px-5 py-3 rounded-2xl bg-charcoal text-white text-xs sm:text-sm font-semibold shadow-lg flex items-center gap-2.5">
+      <span class="w-2.5 h-2.5 rounded-full bg-pastelMint"></span>
+      <span id="toast-message">Tersalin ke papan klip!</span>
+    </div>
+  </div>
+
+  <!-- Main JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
